@@ -1,14 +1,11 @@
-import json
-import csv
+import pandas as pd
 import os
 
-# Ensure data folder exists
+# Step 1: Find JSON file
 data_folder = "data"
-
-# Find JSON file
 files = os.listdir(data_folder)
-json_file = None
 
+json_file = None
 for file in files:
     if file.endswith(".json"):
         json_file = os.path.join(data_folder, file)
@@ -18,40 +15,38 @@ if not json_file:
     print("No JSON file found!")
     exit()
 
-print(f"Using file: {json_file}")
+# Load JSON into DataFrame
+df = pd.read_json(json_file)
 
-# Load JSON
-with open(json_file, "r") as f:
-    data = json.load(f)
+print(f"Loaded {len(df)} stories from {json_file}")
 
-cleaned_data = []
+# Step 2: Clean Data
 
-for item in data:
-    # Clean fields
-    cleaned_item = {
-        "post_id": item.get("post_id", ""),
-        "title": item.get("title", "").strip(),
-        "category": item.get("category", ""),
-        "score": item.get("score", 0),
-        "num_comments": item.get("num_comments", 0),
-        "author": item.get("author", ""),
-        "collected_at": item.get("collected_at", "")
-    }
+# Remove duplicates
+df = df.drop_duplicates(subset="post_id")
+print(f"After removing duplicates: {len(df)}")
 
-    # Skip empty titles
-    if cleaned_item["title"] == "":
-        continue
+# Remove missing values
+df = df.dropna(subset=["post_id", "title", "score"])
+print(f"After removing nulls: {len(df)}")
 
-    cleaned_data.append(cleaned_item)
+# Fix data types
+df["score"] = df["score"].astype(int)
+df["num_comments"] = df["num_comments"].astype(int)
 
-# Save CSV
-output_file = os.path.join(data_folder, "trends_cleaned.csv")
+# Remove low quality (score < 5)
+df = df[df["score"] >= 5]
+print(f"After removing low scores: {len(df)}")
 
-with open(output_file, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=cleaned_data[0].keys())
-    writer.writeheader()
-    writer.writerows(cleaned_data)
+# Clean whitespace in title
+df["title"] = df["title"].str.strip()
 
-print("Cleaning complete ✅")
-print(f"Saved to: {output_file}")
-print(f"Total records: {len(cleaned_data)}")
+# Step 3: Save CSV
+output_file = os.path.join(data_folder, "trends_clean.csv")
+df.to_csv(output_file, index=False)
+
+print(f"\nSaved {len(df)} rows to {output_file}")
+
+# Summary: stories per category
+print("\nStories per category:")
+print(df["category"].value_counts())

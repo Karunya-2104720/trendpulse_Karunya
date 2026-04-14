@@ -1,0 +1,45 @@
+post_id,title,category,score,num_comments,author,collected_at
+47768195,"Spain to expand internet blocks to tennis, golf, movies broadcasting times",technology,38,15,akyuu,2026-04-14 23:07:22.204033
+47768133,Claude Code Routines,technology,37,12,matthieu_bl,2026-04-14 23:07:23.238933
+47767676,5NF and Database Design,technology,43,9,petalmind,2026-04-14 23:07:24.214812
+47767606,Show HN: Kelet – Root Cause Analysis agent for your LLM apps,technology,20,8,almogbaku,2026-04-14 23:07:28.167095
+47766370,Show HN: LangAlpha – what if Claude Code was built for Wall Street?,technology,27,10,zc2610,2026-04-14 23:07:29.142557
+47765374,Show HN: Kontext CLI – Credential broker for AI coding agents in Go,technology,39,9,mc-serious,2026-04-14 23:07:32.212138
+47761625,Multi-Agentic Software Development Is a Distributed Systems Problem,technology,93,44,tie-in,2026-04-14 23:07:46.967303
+47766430,War as a Pretext: Gulf States Are Tightening the Screws on Speech–Again,technology,23,0,hn_acker,2026-04-14 23:07:53.952168
+47728970,"Write less code, be more responsible",technology,151,98,orhunp_,2026-04-14 23:07:54.926081
+47761723,MOS tech 6502 8-bit microprocessor in pure SQL powered by Postgres,technology,64,8,adunk,2026-04-14 23:07:56.896652
+47724408,The Great Majority: Body Snatching and Burial Reform in 19th-Century Britain,technology,21,2,apollinaire,2026-04-14 23:07:58.892806
+47753689,Building a CLI for all of Cloudflare,technology,322,106,soheilpro,2026-04-14 23:08:00.819925
+47708457,Rust Threads on the GPU,technology,108,34,PaulHoule,2026-04-14 23:08:02.772527
+47766330,To teach in the era of ChatGPT is to know pain,technology,21,2,ckemere,2026-04-14 23:08:03.755054
+47729046,Air Powered Segment Display? [video],technology,126,12,ProfDreamer,2026-04-14 23:08:06.629462
+47764833,Stanford HAI Index Report 2026,technology,5,1,giuliomagnifico,2026-04-14 23:08:07.609734
+47758347,N-Day-Bench – Can LLMs find real vulnerabilities in real codebases?,technology,86,29,mufeedvh,2026-04-14 23:08:11.500358
+47756772,GAIA – Open-source framework for building AI agents that run on local hardware,technology,140,33,galaxyLogic,2026-04-14 23:08:13.476494
+47764164,The Case Against Gameplay Loops (2024),technology,50,48,coinfused,2026-04-14 23:08:20.366496
+47767593,Stolen Rockstar Games analytics data leaked by extortion gang,technology,5,1,Brajeshwar,2026-04-14 23:08:23.633682
+47750872,Servo is now available on crates.io,technology,463,147,ffin,2026-04-14 23:08:25.557942
+47759292,The AI revolution in math has arrived,technology,100,50,sonabinu,2026-04-14 23:08:28.499559
+47755209,B-trees and database indexes (2024),technology,114,43,tosh,2026-04-14 23:08:29.484478
+47751621,Initial mainline video capture and camera support for Rockchip RK3588,technology,87,27,mfilion,2026-04-14 23:08:33.343888
+47752466,MEMS Array Chip Can Project Video the Size of a Grain of Sand,technology,87,43,bookofjoe,2026-04-14 23:08:35.332903
+47764975,Man suspected of Molotov attack Sam Altmans home charged with attempted murder,worldnews,15,1,Bender,2026-04-14 23:08:32.376303
+47763185,An open letter to the UK Government on digital privacy,worldnews,17,4,vsajip,2026-04-14 23:09:09.534662
+47762994,Ransomware Is Growing Three Times Faster Than the Spending Meant to Stop It,worldnews,82,78,adulion,2026-04-14 23:09:13.545500
+47760360,An Amazon warehouse worker died on the job at Oregon facility,worldnews,14,1,cebert,2026-04-14 23:09:15.501108
+47764690,Amazon to Buy Satellite Operator Globalstar,worldnews,5,0,marc__1,2026-04-14 23:09:42.382225
+47753472,Nothing Ever Happens: Polymarket bot that always buys No on non-sports markets,sports,459,257,m-hodges,2026-04-14 23:08:16.441684
+47761825,Roblox devs now need a subscription to share their games freely,sports,65,67,hallole,2026-04-14 23:09:00.404089
+47741460,How long-distance couples use digital games to facilitate intimacy (2025),sports,130,38,radeeyate,2026-04-14 23:09:24.277768
+47758870,Let's Talk Space Toilets,science,30,5,zdw,2026-04-14 23:07:26.144430
+47738343,The Physics of GPS,science,163,35,maouida,2026-04-14 23:09:49.306711
+47714770,Show HN: Run GUIs as Scripts,entertainment,17,6,zero-st4rs,2026-04-14 23:07:50.966134
+47756569,"Show HN: Ithihāsas – a character explorer for Hindu epics, built in a few hours",entertainment,165,44,cvrajeesh,2026-04-14 23:08:21.323996
+47762851,Show HN: A stateful UI runtime for reactive web apps in Go,entertainment,9,4,derstruct,2026-04-14 23:08:59.393180
+47742200,Show HN: boringBar – a taskbar-style dock replacement for macOS,entertainment,510,293,a-ve,2026-04-14 23:09:14.539226
+47757552,Show HN: Continual Learning with .md,entertainment,32,28,wenhan_zhou,2026-04-14 23:09:19.359244
+47724352,Filing the corners off my MacBooks,entertainment,1398,672,normanvalentine,2026-04-14 23:09:23.248454
+47761442,Show HN: Deflect One – command line dashboard for managing Linux servers via SSH,entertainment,6,4,whitemanv,2026-04-14 23:09:31.424817
+47741393,Textbooks and Methods of Note-Taking in Early Modern Europe (2008),entertainment,54,0,mooreds,2026-04-14 23:09:43.404395
+47739174,Show HN: Oberon System 3 runs natively on Raspberry Pi 3 (with ready SD card),entertainment,240,107,Rochus,2026-04-14 23:09:50.276321
