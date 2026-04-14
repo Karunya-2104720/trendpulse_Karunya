@@ -4,8 +4,10 @@ import json
 from datetime import datetime
 import os
 
-# API URLs
+# Start message
 print("Starting script...")
+
+# API URLs
 TOP_STORIES_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
 ITEM_URL = "https://hacker-news.firebaseio.com/v0/item/{}.json"
 
@@ -20,7 +22,7 @@ CATEGORIES = {
     "entertainment": ["movie", "film", "music", "netflix", "game", "book", "show", "award", "streaming"]
 }
 
-# Assign category based on title
+# Assign category
 def categorize(title):
     title = title.lower()
     for category, keywords in CATEGORIES.items():
@@ -29,16 +31,17 @@ def categorize(title):
                 return category
     return None
 
-# Fetch top story IDs
-print("Fetched story IDs")
+# Fetch top stories
 response = requests.get(TOP_STORIES_URL, headers=headers)
 story_ids = response.json()[:150]
 
+print("Fetched story IDs")
+
 results = {cat: [] for cat in CATEGORIES}
 
-# Fetch stories
+# Fetch each story
 for story_id in story_ids:
-    print(f"Processing story {story_id}")  
+    print(f"Processing story {story_id}")
     try:
         res = requests.get(ITEM_URL.format(story_id), headers=headers)
         story = res.json()
@@ -47,6 +50,7 @@ for story_id in story_ids:
             continue
 
         category = categorize(story["title"])
+
         if category and len(results[category]) < 25:
             results[category].append({
                 "post_id": story.get("id"),
@@ -58,24 +62,23 @@ for story_id in story_ids:
                 "collected_at": datetime.now().isoformat()
             })
 
-        # Stop if all categories full
         if all(len(results[c]) >= 25 for c in results):
             break
 
     except Exception as e:
         print(f"Error fetching story {story_id}: {e}")
 
-# Combine all data
+# Combine data
 final_data = []
 for cat in results:
     final_data.extend(results[cat])
 
-# Create data folder
+# Save file
 os.makedirs("data", exist_ok=True)
 
-# Save JSON
 print("Saving file...")
 filename = f"data/trends_{datetime.now().strftime('%Y%m%d')}.json"
+
 with open(filename, "w") as f:
     json.dump(final_data, f, indent=4)
 
