@@ -5,6 +5,7 @@ from datetime import datetime
 import os
 
 # API URLs
+print("Starting script...")
 TOP_STORIES_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
 ITEM_URL = "https://hacker-news.firebaseio.com/v0/item/{}.json"
 
@@ -29,6 +30,7 @@ def categorize(title):
     return None
 
 # Fetch top story IDs
+print("Fetched story IDs")
 response = requests.get(TOP_STORIES_URL, headers=headers)
 story_ids = response.json()[:150]
 
@@ -36,6 +38,7 @@ results = {cat: [] for cat in CATEGORIES}
 
 # Fetch stories
 for story_id in story_ids:
+    print(f"Processing story {story_id}")  
     try:
         res = requests.get(ITEM_URL.format(story_id), headers=headers)
         story = res.json()
@@ -71,6 +74,7 @@ for cat in results:
 os.makedirs("data", exist_ok=True)
 
 # Save JSON
+print("Saving file...")
 filename = f"data/trends_{datetime.now().strftime('%Y%m%d')}.json"
 with open(filename, "w") as f:
     json.dump(final_data, f, indent=4)
