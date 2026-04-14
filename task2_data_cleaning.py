@@ -2,11 +2,13 @@ import json
 import csv
 import os
 
-# Find the JSON file inside data folder
+# Ensure data folder exists
 data_folder = "data"
-files = os.listdir(data_folder)
 
+# Find JSON file
+files = os.listdir(data_folder)
 json_file = None
+
 for file in files:
     if file.endswith(".json"):
         json_file = os.path.join(data_folder, file)
@@ -16,14 +18,16 @@ if not json_file:
     print("No JSON file found!")
     exit()
 
-# Load JSON data
+print(f"Using file: {json_file}")
+
+# Load JSON
 with open(json_file, "r") as f:
     data = json.load(f)
 
 cleaned_data = []
 
 for item in data:
-    # Clean missing values
+    # Clean fields
     cleaned_item = {
         "post_id": item.get("post_id", ""),
         "title": item.get("title", "").strip(),
@@ -34,7 +38,7 @@ for item in data:
         "collected_at": item.get("collected_at", "")
     }
 
-    # Skip if no title
+    # Skip empty titles
     if cleaned_item["title"] == "":
         continue
 
@@ -48,5 +52,6 @@ with open(output_file, "w", newline="", encoding="utf-8") as f:
     writer.writeheader()
     writer.writerows(cleaned_data)
 
-print(f"Cleaned data saved to {output_file}")
+print("Cleaning complete ✅")
+print(f"Saved to: {output_file}")
 print(f"Total records: {len(cleaned_data)}")
